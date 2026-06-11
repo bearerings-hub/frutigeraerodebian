@@ -1,0 +1,168 @@
+/* ╭─────────────────────────────────────────────────────────╮ */
+/* │       aero-nature · waybar stylesheet                  │ */
+/* │       frosted glass · deep forest · sky accent         │ */
+/* ╰─────────────────────────────────────────────────────────╯ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+* {
+    font-family: "JetBrains Mono", "Inter", monospace;
+    font-size: 13px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+}
+
+window#waybar {
+    background: rgba(14, 31, 24, 0.75);
+    border-bottom: 1px solid rgba(94, 196, 122, 0.18);
+    border-radius: 14px;
+    color: #d4f0e2;
+}
+
+/* ── Shared module pill ──────────────────────────────────── */
+#clock,
+#cpu,
+#memory,
+#pulseaudio,
+#network,
+#battery,
+#tray,
+#custom-logo,
+#custom-sep {
+    padding: 4px 12px;
+    border-radius: 10px;
+    background: rgba(20, 48, 32, 0.60);
+    color: #c8e8d8;
+    margin: 4px 2px;
+    transition: background 0.2s ease;
+}
+
+#clock:hover,
+#cpu:hover,
+#memory:hover,
+#pulseaudio:hover,
+#network:hover,
+#battery:hover {
+    background: rgba(46, 125, 90, 0.55);
+    color: #eaf9f1;
+}
+
+/* ── Logo ────────────────────────────────────────────────── */
+#custom-logo {
+    background: transparent;
+    color: #5ec47a;
+    font-size: 16px;
+    padding: 0 6px;
+}
+
+#custom-sep {
+    background: transparent;
+    color: rgba(168, 230, 192, 0.3);
+    padding: 0 4px;
+}
+
+/* ── Clock ───────────────────────────────────────────────── */
+#clock {
+    color: #8ee8a8;
+    font-weight: 600;
+}
+
+/* ── CPU & Memory ────────────────────────────────────────── */
+#cpu {
+    color: #6dc4f5;
+}
+
+#memory {
+    color: #7aeaea;
+}
+
+/* ── Workspaces ──────────────────────────────────────────── */
+#workspaces {
+    background: rgba(14, 31, 24, 0.65);
+    border-radius: 12px;
+    padding: 2px 6px;
+    margin: 4px 0;
+    border: 1px solid rgba(94, 196, 122, 0.15);
+}
+
+#workspaces button {
+    padding: 2px 8px;
+    color: #7ab89a;
+    background: transparent;
+    border-radius: 8px;
+    transition: all 0.15s ease;
+}
+
+#workspaces button:hover {
+    background: rgba(46, 125, 90, 0.4);
+    color: #eaf9f1;
+}
+
+#workspaces button.active {
+    background: rgba(46, 125, 90, 0.75);
+    color: #eaf9f1;
+    font-weight: bold;
+    box-shadow: 0 0 8px rgba(94, 196, 122, 0.35);
+}
+
+#workspaces button.urgent {
+    background: rgba(217, 107, 58, 0.65);
+    color: #f9d8c8;
+}
+
+/* ── Audio ───────────────────────────────────────────────── */
+#pulseaudio {
+    color: #b89fe8;
+}
+
+#pulseaudio.muted {
+    color: #7ab89a;
+    opacity: 0.6;
+}
+
+/* ── Network ─────────────────────────────────────────────── */
+#network {
+    color: #6dc4f5;
+}
+
+#network.disconnected {
+    color: #d96b3a;
+}
+
+/* ── Battery ─────────────────────────────────────────────── */
+#battery {
+    color: #8ee8a8;
+}
+
+#battery.warning {
+    color: #c8d94a;
+}
+
+#battery.critical {
+    color: #d96b3a;
+    animation: blink 1s linear infinite;
+}
+
+#battery.charging {
+    color: #5ec47a;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.4; }
+}
+
+/* ── Tray ────────────────────────────────────────────────── */
+#tray {
+    background: rgba(20, 48, 32, 0.50);
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: rgba(217, 107, 58, 0.5);
+}
